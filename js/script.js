@@ -6,7 +6,7 @@ function getInputValue(id){
     return parseFloat(document.getElementById(id).value);
 }
 
-// Elements
+// Section and HTML Elements
 const currentBalance = document.getElementById('current-balance');
 const donationTab = document.getElementById('donation-tab');
 const donationSection = document.getElementById('donation-section');
@@ -15,15 +15,16 @@ const historySection = document.getElementById('history-section');
 const modal = document.getElementById('modal');
 const donationList = document.getElementById('donation-list');
 
-// InnerText
+// Balances
 const firstDonationBalance = document.getElementById('first-donation-balance');
 const secondDonationBalance = document.getElementById('second-donation-balance');
 const thirdDonationBalance = document.getElementById('third-donation-balance');
 
-// Value
+// Values
 const firstDonationInput = document.getElementById('first-donation-input');
 const secondDonationInput = document.getElementById('second-donation-input');
 const thirdDonationInput = document.getElementById('third-donation-input');
+
 // donation Buttons
 const firstDonationButton = document.getElementById('first-donation-button');
 const secondDonationButton = document.getElementById('second-donation-button');
@@ -65,9 +66,12 @@ historyTab.addEventListener('click', function(){
 
 firstDonationButton.addEventListener('click', function(e){
     e.preventDefault();
-    const firstDonationInputN = parseFloat(firstDonationInput.value);
+    const firstDonationInputN = getInputValue('first-donation-input');
     if(firstDonationInputN<=0 || isNaN(firstDonationInputN)){
         alert('Wrong Amount');
+    }
+    else if(firstDonationInputN > currentBalance.innerText){
+        alert('Insufficient Balance.');
     }
     else{
         const firstDonationBalanceU = parseFloat(firstDonationBalance.innerText) + firstDonationInputN;
@@ -91,9 +95,12 @@ firstDonationButton.addEventListener('click', function(e){
 
 secondDonationButton.addEventListener('click', function(e){
     e.preventDefault();
-    const secondDonationInputN = parseFloat(secondDonationInput.value);
+    const secondDonationInputN = getInputValue('second-donation-input');
     if(secondDonationInputN<=0 || isNaN(secondDonationInputN)){
         alert('Wrong Amount');
+    }
+    else if(secondDonationInputN > getInnerText('current-balance')){
+        alert('Insufficient Balance.');
     }
     else{
         const secondDonationBalanceU = parseFloat(secondDonationBalance.innerText) + secondDonationInputN;
@@ -117,9 +124,12 @@ secondDonationButton.addEventListener('click', function(e){
 
 thirdDonationButton.addEventListener('click', function(e){
     e.preventDefault();
-    const thirdDonationInputN = parseFloat(thirdDonationInput.value);
+    const thirdDonationInputN = getInputValue('third-donation-input');
     if(thirdDonationInputN<=0 || isNaN(thirdDonationInputN)){
         alert('Wrong Amount');
+    }
+    else if(thirdDonationInputN > getInnerText('current-balance')){
+        alert('Insufficient Balance.');
     }
     else{
         const thirdDonationBalanceU = parseFloat(thirdDonationBalance.innerText) + thirdDonationInputN;
@@ -140,5 +150,3 @@ thirdDonationButton.addEventListener('click', function(e){
         donationList.appendChild(div);
     }
 });
-
-
