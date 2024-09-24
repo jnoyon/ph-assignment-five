@@ -1,3 +1,12 @@
+function getInnerText(id){
+    const getInnerTextByID = document.getElementById(id).innerText;
+    return getInnerTextByID;
+}
+function getInputValue(id){
+    const getInputValueID = document.getElementById(id).value;
+    return getInputValueID;
+}
+
 const currentBalance = document.getElementById('current-balance');
 const modal = document.getElementById('modal');
 
@@ -13,6 +22,10 @@ const donationList = document.getElementById('donation-list');
 const firstDonationBalance = document.getElementById('first-donation-balance');
 const firstDonationInput = document.getElementById('first-donation-input');
 const firstDonationButton = document.getElementById('first-donation-button');
+
+
+
+
 
 
 // Tab Section
@@ -54,8 +67,8 @@ firstDonationButton.addEventListener('click', function(e){
         const div = document.createElement('div');
         div.className = 'item gap-5 border border-gray-300 border-solid p-5 rounded-md mb-5'
         div.innerHTML = `
-            <h1 class="font-bold text-xl mb-3"> ${firstDonationButtonN} Taka is Donated for the </h1>
-            <p class="text-gray-600"> ${new Date().toLocaleDateString()} </p>
+            <h1 class="font-bold text-xl mb-3"> ${firstDonationInputN} Taka is Donated for the </h1>
+            <p class="text-gray-600"> ${new Date().toString()} </p>
         `
         donationList.appendChild(div);
     }
@@ -71,12 +84,12 @@ document.addEventListener('scroll', function(){
     const header = document.getElementById('header');
     const navSection = document.getElementById('nav-section');
    if(scrollY > 100){
-    header.classList.add('fixed', 'w-full', 'bg-transparent', 'header-blur');
-    navSection.classList.add('bg-transparent');
+        header.classList.add('fixed', 'w-full', 'bg-transparent', 'backdrop-blur-2xl');
+        navSection.classList.add('bg-transparent');
    }
    else {
-    header.classList.remove('fixed', 'w-full', 'bg-transparent', 'header-blur');
-    navSection.classList.remove('bg-transparent');
+        header.classList.remove('fixed', 'w-full', 'bg-transparent', 'backdrop-blur-2xl');
+        navSection.classList.remove('bg-transparent');
    }
     
 })

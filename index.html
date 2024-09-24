@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Donate Bangladesh</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .header-blur {
-            backdrop-filter: blur(50px);
-        }
-    </style>
 </head>
 <body>
     <header class="header-area" id="header">
@@ -24,7 +19,7 @@
                       <a class="flex items-center gap-3 md:text-xl"> <img src="images/logo.png" alt="#" class="w-8"> <span class="font-bold"> Donate Bangladesh </span> </a>
                     </div>
                     <div class="navbar-end">
-                      <p class="font-bold text-sm md:text-base"> <i class="fa fa-solid fa-dollar"></i> <span id="current-balance">5500</span> BDT </p>
+                      <p class="font-bold text-sm md:text-base"> <i class="fa fa-solid fa-dollar"></i> <img src="images/coin.png" alt="coin" class="inline w-4"> <span id="current-balance">5500</span> BDT </p>
                     </div>
                 </div>
             </div>
@@ -49,8 +44,8 @@
                     </div>
                     <div class="donation-content md:w-2/3">
                         <p class="bg-gray-300 inline-block py-2 px-4 rounded-md mb-3"> <img src="images/coin.png" alt="coin" class="w-4 inline"> <span id="first-donation-balance">0</span> BDT </p>
-                        <h1 class="font-bold text-xl mb-3"> Lorem ipsum dolor sit amet consectetur adipisicing elit! </h1>
-                        <p class="mb-2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis in velit atque, harum quibusdam neque quae adipisci a distinctio consequatur obcaecati voluptatibus delectus molestiae ducimus veritatis nam earum eius quidem modi vero nulla? Magni amet, inventore beatae provident voluptas ipsam nihil nobis porro expedita repellat, eius, commodi exercitationem molestias mollitia! </p>
+                        <h1 class="font-bold text-xl mb-3" id="first-donation-heading"> Donate for Flood at Noakhali, Bangladesh. </h1>
+                        <p class="mb-2">  </p>
                         <form action="#">
                             <input type="number" name="noakhali" id="first-donation-input" class="w-full border border-solid border-gray-300 rounded-md py-2 px-4 mb-3" placeholder="Write Amount">
                             <input type="submit" value="Donate Now" class="py-2 bg-lime-400 rounded-md w-full font-bold" id="first-donation-button">
@@ -68,22 +63,21 @@
         </div>
     </section>
 
-    <!-- Open the modal using ID.showModal() method -->
 
-<dialog id="modal" class="modal">
-  <div class="modal-box text-center">
-    <h1 class="font-bold text-2xl mb-3">Congratulations!</h1>
-    <img src="images/coin.png" alt="logo" class="mx-auto w-14">
-    <p class="py-4">You have danated for Humanind</p>
-    <h2 class="font-bold text-xl"> Successfully </h2>
-    <div class="modal-action">
-      <form method="dialog" class="mx-auto">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close Confirmation</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+    <dialog id="modal" class="modal">
+        <div class="modal-box text-center">
+            <h1 class="font-bold text-2xl mb-3">Congratulations!</h1>
+            <img src="images/coin.png" alt="logo" class="mx-auto w-14">
+            <p class="py-4">You have danated for Humanind</p>
+            <h2 class="font-bold text-xl"> Successfully </h2>
+            <div class="modal-action">
+            <form method="dialog" class="mx-auto">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close Confirmation</button>
+            </form>
+            </div>
+        </div>
+    </dialog>
 
 
 
