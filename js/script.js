@@ -7,6 +7,9 @@ function getInputValue(id){
     return getInputValueID;
 }
 
+
+
+
 const currentBalance = document.getElementById('current-balance');
 const modal = document.getElementById('modal');
 
@@ -64,10 +67,12 @@ firstDonationButton.addEventListener('click', function(e){
         currentBalance.innerText = currentBalanceU;
         modal.showModal();
 
+
+        const firstDonationTitle = getInnerText('first-donation-title');
         const div = document.createElement('div');
         div.className = 'item gap-5 border border-gray-300 border-solid p-5 rounded-md mb-5'
         div.innerHTML = `
-            <h1 class="font-bold text-xl mb-3"> ${firstDonationInputN} Taka is Donated for the </h1>
+            <h1 class="font-bold text-xl mb-3"> ${firstDonationInputN} Taka is Donated  ${firstDonationTitle} </h1>
             <p class="text-gray-600"> ${new Date().toString()} </p>
         `
         donationList.appendChild(div);
