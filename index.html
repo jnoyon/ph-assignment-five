@@ -12,7 +12,7 @@
         <div class="container mx-auto w-11/12">
             <div class="navbar">
                 <div class="navbar-start">
-                  <a href="#" class="btn bg-lime-400"> Blog </a>
+                  <a href="blog.html" class="btn bg-lime-400"> Blog </a>
                 </div>
                 <div class="navbar-center">
                   <a class="flex items-center gap-3 md:text-xl"> <img src="images/logo.png" alt="#" class="w-8"> <span class="font-bold"> Donate Bangladesh </span> </a>
@@ -39,12 +39,12 @@
                         <img src="images/noakhali.png" alt="Image" class="w-full">
                     </div>
                     <div class="donation-content md:w-2/3">
-                        <p class="bg-gray-300 inline-block py-2 px-4 rounded-md mb-3"> <img src="images/coin.png" alt="coin" class="w-4 inline"> <span id="noakhali-amount">0</span> BDT </p>
+                        <p class="bg-gray-300 inline-block py-2 px-4 rounded-md mb-3"> <img src="images/coin.png" alt="coin" class="w-4 inline"> <span id="first-donation-balance">0</span> BDT </p>
                         <h1 class="font-bold text-xl mb-3"> Lorem ipsum dolor sit amet consectetur adipisicing elit! </h1>
                         <p class="mb-2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis in velit atque, harum quibusdam neque quae adipisci a distinctio consequatur obcaecati voluptatibus delectus molestiae ducimus veritatis nam earum eius quidem modi vero nulla? Magni amet, inventore beatae provident voluptas ipsam nihil nobis porro expedita repellat, eius, commodi exercitationem molestias mollitia! </p>
                         <form action="#">
-                            <input type="text" name="noakhali" id="noakhali-input" class="w-full border border-solid border-gray-300 rounded-md py-2 px-4 mb-3" placeholder="Write Amount">
-                            <input type="submit" value="Donate Now" class="py-2 bg-lime-400 rounded-md w-full font-bold" id="noakhali-button">
+                            <input type="text" name="noakhali" id="first-donation-input" class="w-full border border-solid border-gray-300 rounded-md py-2 px-4 mb-3" placeholder="Write Amount">
+                            <input type="submit" value="Donate Now" class="py-2 bg-lime-400 rounded-md w-full font-bold" id="first-donation-button">
                         </form>
                     </div>
                 </div>
@@ -65,6 +65,26 @@
             </div>
         </div>
     </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+
+<dialog id="modal" class="modal">
+  <div class="modal-box text-center">
+    <h1 class="font-bold text-2xl mb-3">Congratulations!</h1>
+    <img src="images/coin.png" alt="logo" class="mx-auto w-14">
+    <p class="py-4">You have danated for Humanind</p>
+    <h2 class="font-bold text-xl"> Successfully </h2>
+    <div class="modal-action">
+      <form method="dialog" class="mx-auto">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close Confirmation</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
+
     <script src="js/script.js"></script>
 </body>
 </html>
