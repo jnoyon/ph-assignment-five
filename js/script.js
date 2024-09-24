@@ -1,3 +1,5 @@
+
+// Reusable Functions
 function getInnerText(id){
     const getInnerTextByID = document.getElementById(id).innerText;
     return getInnerTextByID;
