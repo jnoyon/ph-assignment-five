@@ -36,25 +36,48 @@ historyTab.addEventListener('click', function(){
 
 firstDonationButton.addEventListener('click', function(e){
     e.preventDefault();
+
+    const firstDonationInputN = parseFloat(firstDonationInput.value);
+
+    if(firstDonationInputN<=0 || isNaN(firstDonationInputN)){
+        alert('Wrong Amount');
+    }
+    else{
+        const firstDonationBalanceU = parseFloat(firstDonationBalance.innerText) + firstDonationInputN;
+        firstDonationBalance.innerText = firstDonationBalanceU;
+        firstDonationInput.value = ''
+
+        const currentBalanceU = parseFloat(currentBalance.innerText) - firstDonationInputN;
+        currentBalance.innerText = currentBalanceU;
+        modal.showModal();
+
+        const div = document.createElement('div');
+        div.className = 'item gap-5 border border-gray-300 border-solid p-5 rounded-md mb-5'
+        div.innerHTML = `
+            <h1 class="font-bold text-xl mb-3"> ${firstDonationButtonN} Taka is Donated for the </h1>
+            <p class="text-gray-600"> ${new Date().toLocaleDateString()} </p>
+        `
+        donationList.appendChild(div);
+    }
+
+
     
-
-    const firstDonationButtonN = parseFloat(firstDonationInput.value);
-    const firstDonationBalanceU = parseFloat(firstDonationBalance.innerText) + firstDonationButtonN;
-    firstDonationBalance.innerText = firstDonationBalanceU;
-    firstDonationInput.value = ''
-
-    const currentBalanceU = parseFloat(currentBalance.innerText) - firstDonationButtonN;
-    currentBalance.innerText = currentBalanceU;
-    modal.showModal();
-
-    const div = document.createElement('div');
-    div.className = 'item gap-5 border border-gray-300 border-solid p-5 rounded-md mb-5'
-    div.innerHTML = `
-        <h1 class="font-bold text-xl mb-3"> ${firstDonationButtonN} Taka is Donated for the </h1>
-        <p class="text-gray-600"> ${new Date().toLocaleDateString()} </p>
-    `
-    donationList.appendChild(div);
 
 });
 
+
+// Sticky Nav
+document.addEventListener('scroll', function(){
+    const header = document.getElementById('header');
+    const navSection = document.getElementById('nav-section');
+   if(scrollY > 100){
+    header.classList.add('fixed', 'w-full', 'bg-transparent', 'header-blur');
+    navSection.classList.add('bg-transparent');
+   }
+   else {
+    header.classList.remove('fixed', 'w-full', 'bg-transparent', 'header-blur');
+    navSection.classList.remove('bg-transparent');
+   }
+    
+})
 
