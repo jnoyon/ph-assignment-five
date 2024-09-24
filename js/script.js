@@ -1,37 +1,48 @@
-
 // Reusable Functions
 function getInnerText(id){
-    const getInnerTextByID = document.getElementById(id).innerText;
-    return getInnerTextByID;
+    return document.getElementById(id).innerText;
 }
 function getInputValue(id){
-    const getInputValueID = document.getElementById(id).value;
-    return getInputValueID;
+    return parseFloat(document.getElementById(id).value);
 }
 
-
-
-
+// Elements
 const currentBalance = document.getElementById('current-balance');
-const modal = document.getElementById('modal');
-
 const donationTab = document.getElementById('donation-tab');
+const donationSection = document.getElementById('donation-section');
 const historyTab = document.getElementById('history-tab');
 const historySection = document.getElementById('history-section');
-const donationSection = document.getElementById('donation-section');
-
-
+const modal = document.getElementById('modal');
 const donationList = document.getElementById('donation-list');
 
-// donation card one
+// InnerText
 const firstDonationBalance = document.getElementById('first-donation-balance');
+const secondDonationBalance = document.getElementById('second-donation-balance');
+const thirdDonationBalance = document.getElementById('third-donation-balance');
+
+// Value
 const firstDonationInput = document.getElementById('first-donation-input');
+const secondDonationInput = document.getElementById('second-donation-input');
+const thirdDonationInput = document.getElementById('third-donation-input');
+// donation Buttons
 const firstDonationButton = document.getElementById('first-donation-button');
+const secondDonationButton = document.getElementById('second-donation-button');
+const thirdDonationButton = document.getElementById('third-donation-button');
 
-
-
-
-
+// Sticky Nav
+document.addEventListener('scroll', function(){
+    const header = document.getElementById('header');
+    const navSection = document.getElementById('nav-section');
+   if(scrollY > 100){
+        header.classList.add('fixed', 'w-full', 'bg-transparent', 'backdrop-blur-2xl');
+        navSection.classList.add('bg-transparent');
+   }
+   else {
+        header.classList.remove('fixed', 'w-full', 'bg-transparent', 'backdrop-blur-2xl');
+        navSection.classList.remove('bg-transparent');
+   }
+    
+})
 
 // Tab Section
 donationTab.addEventListener('click', function(){
@@ -54,9 +65,7 @@ historyTab.addEventListener('click', function(){
 
 firstDonationButton.addEventListener('click', function(e){
     e.preventDefault();
-
     const firstDonationInputN = parseFloat(firstDonationInput.value);
-
     if(firstDonationInputN<=0 || isNaN(firstDonationInputN)){
         alert('Wrong Amount');
     }
@@ -69,7 +78,6 @@ firstDonationButton.addEventListener('click', function(e){
         currentBalance.innerText = currentBalanceU;
         modal.showModal();
 
-
         const firstDonationTitle = getInnerText('first-donation-title');
         const div = document.createElement('div');
         div.className = 'item gap-5 border border-gray-300 border-solid p-5 rounded-md mb-5'
@@ -79,25 +87,58 @@ firstDonationButton.addEventListener('click', function(e){
         `
         donationList.appendChild(div);
     }
-
-
-    
-
 });
 
+secondDonationButton.addEventListener('click', function(e){
+    e.preventDefault();
+    const secondDonationInputN = parseFloat(secondDonationInput.value);
+    if(secondDonationInputN<=0 || isNaN(secondDonationInputN)){
+        alert('Wrong Amount');
+    }
+    else{
+        const secondDonationBalanceU = parseFloat(secondDonationBalance.innerText) + secondDonationInputN;
+        secondDonationBalance.innerText = secondDonationBalanceU;
+        secondDonationInput.value = ''
 
-// Sticky Nav
-document.addEventListener('scroll', function(){
-    const header = document.getElementById('header');
-    const navSection = document.getElementById('nav-section');
-   if(scrollY > 100){
-        header.classList.add('fixed', 'w-full', 'bg-transparent', 'backdrop-blur-2xl');
-        navSection.classList.add('bg-transparent');
-   }
-   else {
-        header.classList.remove('fixed', 'w-full', 'bg-transparent', 'backdrop-blur-2xl');
-        navSection.classList.remove('bg-transparent');
-   }
-    
-})
+        const currentBalanceU = parseFloat(currentBalance.innerText) - secondDonationInputN;
+        currentBalance.innerText = currentBalanceU;
+        modal.showModal();
+
+        const secondDonationTitle = getInnerText('second-donation-title');
+        const div = document.createElement('div');
+        div.className = 'item gap-5 border border-gray-300 border-solid p-5 rounded-md mb-5'
+        div.innerHTML = `
+            <h1 class="font-bold text-xl mb-3"> ${secondDonationInputN} Taka is Donated  ${secondDonationTitle} </h1>
+            <p class="text-gray-600"> ${new Date().toString()} </p>
+        `
+        donationList.appendChild(div);
+    }
+});
+
+thirdDonationButton.addEventListener('click', function(e){
+    e.preventDefault();
+    const thirdDonationInputN = parseFloat(thirdDonationInput.value);
+    if(thirdDonationInputN<=0 || isNaN(thirdDonationInputN)){
+        alert('Wrong Amount');
+    }
+    else{
+        const thirdDonationBalanceU = parseFloat(thirdDonationBalance.innerText) + thirdDonationInputN;
+        thirdDonationBalance.innerText = thirdDonationBalanceU;
+        thirdDonationInput.value = ''
+
+        const currentBalanceU = parseFloat(currentBalance.innerText) - thirdDonationInputN;
+        currentBalance.innerText = currentBalanceU;
+        modal.showModal();
+
+        const thirdDonationTitle = getInnerText('first-donation-title');
+        const div = document.createElement('div');
+        div.className = 'item gap-5 border border-gray-300 border-solid p-5 rounded-md mb-5'
+        div.innerHTML = `
+            <h1 class="font-bold text-xl mb-3"> ${thirdDonationInputN} Taka is Donated  ${thirdDonationTitle} </h1>
+            <p class="text-gray-600"> ${new Date().toString()} </p>
+        `
+        donationList.appendChild(div);
+    }
+});
+
 
