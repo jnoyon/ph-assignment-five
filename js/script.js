@@ -42,24 +42,23 @@ document.addEventListener('scroll', function(){
         header.classList.remove('fixed', 'w-full', 'bg-transparent', 'backdrop-blur-2xl');
         navSection.classList.remove('bg-transparent');
    }
-    
 })
 
 // Tab Section
 donationTab.addEventListener('click', function(){
     historySection.classList.add('hidden');
     donationSection.classList.remove('hidden');
-    donationTab.classList.add('px-4', 'py-2', 'bg-lime-400', 'rounded-md', 'border-solid', 'border-lime-400', 'border');
-    historyTab.classList.remove('bg-lime-400', 'rounded-md', 'border-solid', 'border-lime-400', 'border');
-    historyTab.classList.add('border-gray-300', 'border-solid', 'border', 'rounded-md');
+    donationTab.classList.add('bg-lime-400', 'border-lime-400');
+    historyTab.classList.remove('bg-lime-400', 'border-lime-400');
+    historyTab.classList.add('border', 'border-solid', 'border-gray-300' );
 });
 
 historyTab.addEventListener('click', function(){
     historySection.classList.remove('hidden');
     donationSection.classList.add('hidden');
-    historyTab.classList.add('px-4', 'py-2', 'bg-lime-400', 'rounded-md', 'border-solid', 'border-lime-400', 'border');
-    donationTab.classList.remove('bg-lime-400', 'border', 'border-solid', 'border-lime-400');
-    donationTab.classList.add('border-gray-300', 'border-solid', 'border', 'rounded-md');
+    historyTab.classList.add('bg-lime-400', 'border-lime-400',);
+    donationTab.classList.remove('bg-lime-400', 'border-lime-400');
+    donationTab.classList.add('border', 'border-solid', 'border-gray-300');
 });
 
 
@@ -74,7 +73,7 @@ firstDonationButton.addEventListener('click', function(e){
         alert('Insufficient Balance.');
     }
     else{
-        const firstDonationBalanceU = parseFloat(firstDonationBalance.innerText) + firstDonationInputN;
+        const firstDonationBalanceU = parseFloat(getInnerText('first-donation-balance')) + firstDonationInputN;
         firstDonationBalance.innerText = firstDonationBalanceU;
         firstDonationInput.value = ''
 
@@ -103,7 +102,7 @@ secondDonationButton.addEventListener('click', function(e){
         alert('Insufficient Balance.');
     }
     else{
-        const secondDonationBalanceU = parseFloat(secondDonationBalance.innerText) + secondDonationInputN;
+        const secondDonationBalanceU = parseFloat(getInnerText('second-donation-balance')) + secondDonationInputN;
         secondDonationBalance.innerText = secondDonationBalanceU;
         secondDonationInput.value = ''
 
@@ -132,7 +131,7 @@ thirdDonationButton.addEventListener('click', function(e){
         alert('Insufficient Balance.');
     }
     else{
-        const thirdDonationBalanceU = parseFloat(thirdDonationBalance.innerText) + thirdDonationInputN;
+        const thirdDonationBalanceU = parseFloat(getInnerText('third-donation-balance')) + thirdDonationInputN;
         thirdDonationBalance.innerText = thirdDonationBalanceU;
         thirdDonationInput.value = ''
 
